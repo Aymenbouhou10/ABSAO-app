@@ -468,7 +468,7 @@ if st.button('Afficher les allocations optimales'):
         model.objective = Objective(expr = sum(obj[j]*model.x[j] for j in J), sense=maximize)
 
         # create a solver
-        solver = SolverFactory('glpk')
+        solver = pyomo.environ.SolverFactory('glpk')
 
         # solve
         solver.solve(model)
