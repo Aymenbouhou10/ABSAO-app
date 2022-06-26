@@ -279,6 +279,11 @@ if st.button('Afficher les allocations optimales'):
             with open('./Data/19.npy', 'rb') as f:
                 a = np.load(f, allow_pickle=True)
             dd=a.tolist()
+            a=[0]*90
+            for k in range(32,40):
+                dd[k]=a
+            for k in range(80,88):
+                dd[k]=a
             d=[]
             for i in range(96):
                 d.append(dd[i][z])
