@@ -11,9 +11,6 @@ import base64
 from itertools import chain
 from pyomo.environ import *
 
-import pyutilib.subprocess.GlobalData
-pyutilib.subprocess.GlobalData.DEFINE_SIGNAL_HANDLERS_DEFAULT = False
-
 #image Al Boraq
 def img_to_bytes(img_path):
     img_bytes = Path(img_path).read_bytes()
@@ -469,7 +466,7 @@ if st.button('Afficher les allocations optimales'):
         model.objective = Objective(expr = sum(obj[j]*model.x[j] for j in J), sense=maximize)
 
         # create a solver
-        solver = pyomo.environ.SolverFactory('glpk')
+        solver = SolverFactory('glpk')
 
         # solve
         solver.solve(model)
