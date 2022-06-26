@@ -11,7 +11,8 @@ import base64
 from itertools import chain
 from pyomo.environ import *
 
-
+import pyutilib.subprocess.GlobalData
+pyutilib.subprocess.GlobalData.DEFINE_SIGNAL_HANDLERS_DEFAULT = False
 
 #image Al Boraq
 def img_to_bytes(img_path):
